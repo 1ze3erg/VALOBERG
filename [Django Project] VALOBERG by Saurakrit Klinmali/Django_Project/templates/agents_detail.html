@@ -1,0 +1,49 @@
+{% extends 'agents_base.html' %}
+
+{% block content_agents %}
+    <h1 class="text-center bg-secondary m-0">{{ agent.name }}</h1>
+    <div class="row m-0" style="width: 100%;">
+        <div class="position-relative col-md p-0" id="agent_image" style="height: 500px; margin: 5pt;">
+            <img src="{{ agent.image }}" class="position-absolute top-50 start-50 translate-middle" height="500px"> 
+        </div>
+        <div class="col-md p-5" style="margin: 5pt;" id="agent_detail">
+            <h3>Role</h3>
+            <hr>
+            <p>{{ agent.role }}</p>
+            <br>
+            <h3>Origin</h3>
+            <hr>
+            <p>{{ agent.origin }}</p>
+            <br>
+            <h3>Biography:</h3>
+            <hr>
+            <p>{{ agent.bio }}</p>
+        </div>
+    </div>
+    <div id="agent_ability">
+        <table class="table table-dark table-striped m-0">
+            <thead align="center">
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Creds</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Ult.Points</th>
+                    <th scope="col">Detail</th>
+                </tr>
+            </thead>
+            <tbody align="center">
+            {% for ability in agent.ability_set.all %}
+                <tr>
+                    <td><img src="{{ ability.image }}" height="100"></td>
+                    <td>{{ ability.name }}</td>
+                    <td>{{ ability.creds }}</td>
+                    <td>{{ ability.duration }}</td>
+                    <td>{{ ability.ult_points }}</td>
+                    <td align="left">{{ ability.detail }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>    
+    </div>
+{% endblock %}

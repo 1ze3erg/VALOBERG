@@ -1,0 +1,202 @@
+{% extends 'agents_base.html' %}
+{% load static %}
+
+{% block content_agents %}
+    <ul class="nav nav-pills" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+        <button class="nav-link active rounded-0" id="all-agent-tab" data-bs-toggle="tab" data-bs-target="#all-agent" type="button" role="tab" aria-controls="all-agent" aria-selected="true">All Agent</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-0" id="duelist-tab" data-bs-toggle="tab" data-bs-target="#duelist" type="button" role="tab" aria-controls="duelist" aria-selected="true">Duelist</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-0" id="controller-tab" data-bs-toggle="tab" data-bs-target="#controller" type="button" role="tab" aria-controls="controller" aria-selected="true">Controller</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-0" id="initiator-tab" data-bs-toggle="tab" data-bs-target="#initiator" type="button" role="tab" aria-controls="initiator" aria-selected="true">Initiator</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-0" id="sentinel-tab" data-bs-toggle="tab" data-bs-target="#sentinel" type="button" role="tab" aria-controls="sentinel" aria-selected="true">Sentinel</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="all-agent" role="tabpanel" aria-labelledby="all-agent-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Origin</th>
+                        <th scope="col">Ability</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                {% for agent in agents %}
+                    <tr>
+                        <td style="width: 300px;"><a href="/agents/{{ agent.name }}"><img src="{{ agent.image }}" height="300px"></a></td>
+                        <td><a href="/agents/{{ agent.name }}">{{ agent.name }}</a></td>
+                        <td>{{ agent.role }}</td>
+                        <td>{{ agent.origin }}</td>
+                        <td style="width: 900px;">
+                            <div class="d-flex align-content-start flex-wrap justify-content-between">
+                                {% for ability in agent.ability_set.all %}
+                                    <div class="bg-dark text-white d-inline p-3 rounded-3" style="flex: 1; margin: 5px;">
+                                        {% cycle 'C' 'Q' 'E' 'X' %}<br>
+                                        <img src="{{ ability.image }}" height="50px"><br>
+                                        {{ ability.name }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>    
+        </div>
+        <div class="tab-pane fade" id="duelist" role="tabpanel" aria-labelledby="duelist-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Origin</th>
+                        <th scope="col">Ability</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                {% for agent in agents %}
+                    {% if agent.role_id == 1 %}
+                        <tr>
+                            <td style="width: 300px;"><a href="/agents/{{ agent.name }}"><img src="{{ agent.image }}" height="300px"></a></td>
+                            <td><a href="/agents/{{ agent.name }}">{{ agent.name }}</a></td>
+                            <td>{{ agent.role }}</td>
+                            <td>{{ agent.origin }}</td>
+                            <td style="width: 900px;">
+                                <div class="d-flex align-content-start flex-wrap justify-content-between">
+                                    {% for ability in agent.ability_set.all %}
+                                        <div class="bg-dark text-white d-inline p-3 rounded-3" style="flex: 1; margin: 5px;">
+                                            {% cycle 'C' 'Q' 'E' 'X' %}<br>
+                                            <img src="{{ ability.image }}" height="50px"><br>
+                                            {{ ability.name }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="controller" role="tabpanel" aria-labelledby="controller-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Origin</th>
+                        <th scope="col">Ability</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                {% for agent in agents %}
+                    {% if agent.role_id == 2 %}
+                        <tr>
+                            <td style="width: 300px;"><a href="/agents/{{ agent.name }}"><img src="{{ agent.image }}" height="300px"></a></td>
+                            <td><a href="/agents/{{ agent.name }}">{{ agent.name }}</a></td>
+                            <td>{{ agent.role }}</td>
+                            <td>{{ agent.origin }}</td>
+                            <td style="width: 900px;">
+                                <div class="d-flex align-content-start flex-wrap justify-content-between">
+                                    {% for ability in agent.ability_set.all %}
+                                        <div class="bg-dark text-white d-inline p-3 rounded-3" style="flex: 1; margin: 5px;">
+                                            {% cycle 'C' 'Q' 'E' 'X' %}<br>
+                                            <img src="{{ ability.image }}" height="50px"><br>
+                                            {{ ability.name }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="initiator" role="tabpanel" aria-labelledby="initiator-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Origin</th>
+                        <th scope="col">Ability</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                {% for agent in agents %}
+                    {% if agent.role_id == 3 %}
+                        <tr>
+                            <td style="width: 300px;"><a href="/agents/{{ agent.name }}"><img src="{{ agent.image }}" height="300px"></a></td>
+                            <td><a href="/agents/{{ agent.name }}">{{ agent.name }}</a></td>
+                            <td>{{ agent.role }}</td>
+                            <td>{{ agent.origin }}</td>
+                            <td style="width: 900px;">
+                                <div class="d-flex align-content-start flex-wrap justify-content-between">
+                                    {% for ability in agent.ability_set.all %}
+                                        <div class="bg-dark text-white d-inline p-3 rounded-3" style="flex: 1; margin: 5px;">
+                                            {% cycle 'C' 'Q' 'E' 'X' %}<br>
+                                            <img src="{{ ability.image }}" height="50px"><br>
+                                            {{ ability.name }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="sentinel" role="tabpanel" aria-labelledby="sentinel-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Origin</th>
+                        <th scope="col">Ability</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                {% for agent in agents %}
+                    {% if agent.role_id == 4 %}
+                        <tr>
+                            <td style="width: 300px;"><a href="/agents/{{ agent.name }}"><img src="{{ agent.image }}" height="300px"></a></td>
+                            <td><a href="/agents/{{ agent.name }}">{{ agent.name }}</a></td>
+                            <td>{{ agent.role }}</td>
+                            <td>{{ agent.origin }}</td>
+                            <td style="width: 900px;">
+                                <div class="d-flex align-content-start flex-wrap justify-content-between">
+                                    {% for ability in agent.ability_set.all %}
+                                        <div class="bg-dark text-white d-inline p-3 rounded-3" style="flex: 1; margin: 5px;">
+                                            {% cycle 'C' 'Q' 'E' 'X' %}<br>
+                                            <img src="{{ ability.image }}" height="50px"><br>
+                                            {{ ability.name }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

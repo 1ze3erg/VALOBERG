@@ -1,0 +1,261 @@
+{% extends 'weapons_base.html' %}
+
+{% block content_weapons %}
+    <ul class="nav nav-pills" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+        <button class="nav-link active rounded-0" id="all-weapon-tab" data-bs-toggle="tab" data-bs-target="#all-weapon" type="button" role="tab" aria-controls="all-weapon" aria-selected="true">All Weapon</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-0" id="sidearms-tab" data-bs-toggle="tab" data-bs-target="#sidearms" type="button" role="tab" aria-controls="sidearms" aria-selected="true">Sidearms</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-0" id="smgs-tab" data-bs-toggle="tab" data-bs-target="#smgs" type="button" role="tab" aria-controls="smgs" aria-selected="true">SMGs</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-0" id="rifles-tab" data-bs-toggle="tab" data-bs-target="#rifles" type="button" role="tab" aria-controls="rifles" aria-selected="true">Rifles</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-0" id="shotguns-tab" data-bs-toggle="tab" data-bs-target="#shotguns" type="button" role="tab" aria-controls="shotguns" aria-selected="true">Shotguns</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-0" id="heavies-tab" data-bs-toggle="tab" data-bs-target="#heavies" type="button" role="tab" aria-controls="heavies" aria-selected="true">Heavies</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-0" id="sniper-rifles-tab" data-bs-toggle="tab" data-bs-target="#sniper-rifles" type="button" role="tab" aria-controls="sniper-rifles" aria-selected="true">Sniper Rifles</button>
+        </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-0" id="melee-tab" data-bs-toggle="tab" data-bs-target="#melee" type="button" role="tab" aria-controls="melee" aria-selected="true">Melee</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="all-weapon" role="tabpanel" aria-labelledby="all-weapon-tab">
+            <table class="table table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Fire Mode</th>
+                        <th scope="col">Creds</th>
+                        <th scope="col">Magazine</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for weapon in weapons %}
+                    <tr>
+                        <td><a href="/weapons/{{ weapon.name }}"><img src="{{ weapon.image }}" width="200px"></a></td>
+                        <td><a href="/weapons/{{ weapon.name }}">{{ weapon.name }}</a></td>
+                        <td>{{ weapon.types }}</td>
+                        <td>{{ weapon.fire_mode }}</td>
+                        <td>{{ weapon.creds }}</td>
+                        <td>{{ weapon.magazine }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="sidearms" role="tabpanel" aria-labelledby="sidearms-tab">
+            <table class="table table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Fire Mode</th>
+                        <th scope="col">Creds</th>
+                        <th scope="col">Magazine</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for weapon in weapons %}
+                        {% if weapon.types_id == 1 %}
+                            <tr>
+                                <td><a href="/weapons/{{ weapon.name }}"><img src="{{ weapon.image }}" width="200px"></a></td>
+                                <td><a href="/weapons/{{ weapon.name }}">{{ weapon.name }}</a></td>
+                                <td>{{ weapon.types }}</td>
+                                <td>{{ weapon.fire_mode }}</td>
+                                <td>{{ weapon.creds }}</td>
+                                <td>{{ weapon.magazine }}</td>
+                            </tr>
+                            {% else %}   
+                        {% endif %}   
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="smgs" role="tabpanel" aria-labelledby="smgs-tab">
+            <table class="table table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Fire Mode</th>
+                        <th scope="col">Creds</th>
+                        <th scope="col">Magazine</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for weapon in weapons %}
+                        {% if weapon.types_id == 2 %}
+                            <tr>
+                                <td><a href="/weapons/{{ weapon.name }}"><img src="{{ weapon.image }}" width="200px"></a></td>
+                                <td><a href="/weapons/{{ weapon.name }}">{{ weapon.name }}</a></td>
+                                <td>{{ weapon.types }}</td>
+                                <td>{{ weapon.fire_mode }}</td>
+                                <td>{{ weapon.creds }}</td>
+                                <td>{{ weapon.magazine }}</td>
+                            </tr>
+                            {% else %}   
+                        {% endif %}   
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="rifles" role="tabpanel" aria-labelledby="rifles-tab">
+            <table class="table table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Fire Mode</th>
+                        <th scope="col">Creds</th>
+                        <th scope="col">Magazine</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for weapon in weapons %}
+                        {% if weapon.types_id == 3 %}
+                            <tr>
+                                <td><a href="/weapons/{{ weapon.name }}"><img src="{{ weapon.image }}" width="200px"></a></td>
+                                <td><a href="/weapons/{{ weapon.name }}">{{ weapon.name }}</a></td>
+                                <td>{{ weapon.types }}</td>
+                                <td>{{ weapon.fire_mode }}</td>
+                                <td>{{ weapon.creds }}</td>
+                                <td>{{ weapon.magazine }}</td>
+                            </tr>
+                            {% else %}   
+                        {% endif %}   
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="shotguns" role="tabpanel" aria-labelledby="shotguns-tab">
+            <table class="table table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Fire Mode</th>
+                        <th scope="col">Creds</th>
+                        <th scope="col">Magazine</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for weapon in weapons %}
+                        {% if weapon.types_id == 4 %}
+                            <tr>
+                                <td><a href="/weapons/{{ weapon.name }}"><img src="{{ weapon.image }}" width="200px"></a></td>
+                                <td><a href="/weapons/{{ weapon.name }}">{{ weapon.name }}</a></td>
+                                <td>{{ weapon.types }}</td>
+                                <td>{{ weapon.fire_mode }}</td>
+                                <td>{{ weapon.creds }}</td>
+                                <td>{{ weapon.magazine }}</td>
+                            </tr>
+                            {% else %}   
+                        {% endif %}   
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="heavies" role="tabpanel" aria-labelledby="heavies-tab">
+            <table class="table table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Fire Mode</th>
+                        <th scope="col">Creds</th>
+                        <th scope="col">Magazine</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for weapon in weapons %}
+                        {% if weapon.types_id == 5 %}
+                            <tr>
+                                <td><a href="/weapons/{{ weapon.name }}"><img src="{{ weapon.image }}" width="200px"></a></td>
+                                <td><a href="/weapons/{{ weapon.name }}">{{ weapon.name }}</a></td>
+                                <td>{{ weapon.types }}</td>
+                                <td>{{ weapon.fire_mode }}</td>
+                                <td>{{ weapon.creds }}</td>
+                                <td>{{ weapon.magazine }}</td>
+                            </tr>
+                            {% else %}   
+                        {% endif %}   
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="sniper-rifles" role="tabpanel" aria-labelledby="sniper-rifles-tab">
+            <table class="table table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Fire Mode</th>
+                        <th scope="col">Creds</th>
+                        <th scope="col">Magazine</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for weapon in weapons %}
+                        {% if weapon.types_id == 6 %}
+                            <tr>
+                                <td><a href="/weapons/{{ weapon.name }}"><img src="{{ weapon.image }}" width="200px"></a></td>
+                                <td><a href="/weapons/{{ weapon.name }}">{{ weapon.name }}</a></td>
+                                <td>{{ weapon.types }}</td>
+                                <td>{{ weapon.fire_mode }}</td>
+                                <td>{{ weapon.creds }}</td>
+                                <td>{{ weapon.magazine }}</td>
+                            </tr>
+                            {% else %}   
+                        {% endif %}   
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="melee" role="tabpanel" aria-labelledby="melee-tab">
+            <table class="table table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Fire Mode</th>
+                        <th scope="col">Creds</th>
+                        <th scope="col">Magazine</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for weapon in weapons %}
+                        {% if weapon.types_id == 7 %}
+                            <tr>
+                                <td><a href="/weapons/{{ weapon.name }}"><img src="{{ weapon.image }}" width="200px"></a></td>
+                                <td><a href="/weapons/{{ weapon.name }}">{{ weapon.name }}</a></td>
+                                <td>{{ weapon.types }}</td>
+                                <td>{{ weapon.fire_mode }}</td>
+                                <td>{{ weapon.creds }}</td>
+                                <td>{{ weapon.magazine }}</td>
+                            </tr>
+                            {% else %}   
+                        {% endif %}   
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

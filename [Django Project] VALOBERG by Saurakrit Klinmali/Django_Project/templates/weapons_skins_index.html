@@ -1,0 +1,520 @@
+{% extends 'weapons_skins_base.html' %}
+{% load custom_tags %}
+
+{% block content_weapons_skins %}
+    <ul class="nav nav-pills" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active rounded-0" id="all-skin-tab" data-bs-toggle="tab" data-bs-target="#all-skin" type="button" role="tab" aria-controls="all-skin" aria-selected="true">All Skin</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="classic-tab" data-bs-toggle="tab" data-bs-target="#classic" type="button" role="tab" aria-controls="classic" aria-selected="false">Classic</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="shorty-tab" data-bs-toggle="tab" data-bs-target="#shorty" type="button" role="tab" aria-controls="shorty" aria-selected="false">Shorty</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="frenzy-tab" data-bs-toggle="tab" data-bs-target="#frenzy" type="button" role="tab" aria-controls="frenzy" aria-selected="false">Frenzy</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="ghost-tab" data-bs-toggle="tab" data-bs-target="#ghost" type="button" role="tab" aria-controls="ghost" aria-selected="false">Ghost</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="sheriff-tab" data-bs-toggle="tab" data-bs-target="#sheriff" type="button" role="tab" aria-controls="sheriff" aria-selected="false">Sheriff</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="stinger-tab" data-bs-toggle="tab" data-bs-target="#stinger" type="button" role="tab" aria-controls="stinger" aria-selected="false">Stinger</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="spectre-tab" data-bs-toggle="tab" data-bs-target="#spectre" type="button" role="tab" aria-controls="spectre" aria-selected="false">Spectre</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="bulldog-tab" data-bs-toggle="tab" data-bs-target="#bulldog" type="button" role="tab" aria-controls="bulldog" aria-selected="false">Bulldog</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="guardian-tab" data-bs-toggle="tab" data-bs-target="#guardian" type="button" role="tab" aria-controls="guardian" aria-selected="false">Guardian</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="phantom-tab" data-bs-toggle="tab" data-bs-target="#phantom" type="button" role="tab" aria-controls="phantom" aria-selected="false">Phantom</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="vandal-tab" data-bs-toggle="tab" data-bs-target="#vandal" type="button" role="tab" aria-controls="vandal" aria-selected="false">Vandal</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="bucky-tab" data-bs-toggle="tab" data-bs-target="#bucky" type="button" role="tab" aria-controls="bucky" aria-selected="false">Bucky</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="judge-tab" data-bs-toggle="tab" data-bs-target="#judge" type="button" role="tab" aria-controls="judge" aria-selected="false">Judge</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="ares-tab" data-bs-toggle="tab" data-bs-target="#ares" type="button" role="tab" aria-controls="ares" aria-selected="false">Ares</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="odin-tab" data-bs-toggle="tab" data-bs-target="#odin" type="button" role="tab" aria-controls="odin" aria-selected="false">Odin</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="marshal-tab" data-bs-toggle="tab" data-bs-target="#marshal" type="button" role="tab" aria-controls="marshal" aria-selected="false">Marshal</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="operator-tab" data-bs-toggle="tab" data-bs-target="#operator" type="button" role="tab" aria-controls="operator" aria-selected="false">Operator</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link rounded-0" id="melee-tab" data-bs-toggle="tab" data-bs-target="#melee" type="button" role="tab" aria-controls="melee" aria-selected="false">Melee</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="all-skin" role="tabpanel" aria-labelledby="all-skin-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        <tr>
+                            <td><img src="{{ skin.image }}" width="170px"></td>
+                            <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                            <td>{{ skin.collection }}</a></td>
+                            <td>{{ skin.unlock }}</td>
+                        </tr> 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="classic" role="tabpanel" aria-labelledby="classic-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 1 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="shorty" role="tabpanel" aria-labelledby="shorty-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 2 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="frenzy" role="tabpanel" aria-labelledby="frenzy-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 3 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="ghost" role="tabpanel" aria-labelledby="ghost-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 4 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="sheriff" role="tabpanel" aria-labelledby="sheriff-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 5 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="stinger" role="tabpanel" aria-labelledby="stinger-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 6 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="spectre" role="tabpanel" aria-labelledby="spectre-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 7 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="bulldog" role="tabpanel" aria-labelledby="bulldog-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 8 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="guardian" role="tabpanel" aria-labelledby="guardian-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 9 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="phantom" role="tabpanel" aria-labelledby="phantom-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 10 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="vandal" role="tabpanel" aria-labelledby="vandal-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 11 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="bucky" role="tabpanel" aria-labelledby="bucky-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 17 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="judge" role="tabpanel" aria-labelledby="judge-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 18 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="ares" role="tabpanel" aria-labelledby="ares-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 12 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="odin" role="tabpanel" aria-labelledby="odin-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 13 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="marshal" role="tabpanel" aria-labelledby="marshal-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 14 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="operator" role="tabpanel" aria-labelledby="operator-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 15 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+        <div class="tab-pane fade" id="melee" role="tabpanel" aria-labelledby="melee-tab">
+            <table class="table table-danger table-striped m-0">
+                <thead class="table-dark" align="center">
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Weapon</th>
+                        <th scope="col">Collection</th>
+                        <th scope="col">Unlock</th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    {% for skin in skins %}
+                        {% if skin.weapon_id == 16 %}
+                            <tr>
+                                <td><img src="{{ skin.image }}" width="170px"></td>
+                                <td>{{ weapon_list|get_item:skin.weapon_id }}</td>
+                                <td>{{ skin.collection }}</a></td>
+                                <td>{{ skin.unlock }}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>     
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header class="position-relative bg-danger text-white" style="height: 300px;">
+        <h1 class="position-absolute top-50 start-50 translate-middle">Agents</h1>
+    </header>
+    <div>
+        {% block content_agents %}
+        {% endblock %}
+    </div>
+    <footer class="position-relative bg-secondary text-white-50 m-0" style="height: 5.9vh;">
+        <p class="position-absolute top-50 start-50 translate-middle">VALOBERG Developed By Saurakrit "izeberg" Klinmali</p>
+    </footer>
+{% endblock content %}

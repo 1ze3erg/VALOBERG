@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="position-relative  bg-danger text-white" style="height: 300px;">
+    <h1 class="position-absolute top-50 start-50 translate-middle">Welcome to VALOBERG</h1>
+</header>
+
+<div class="row m-0" style="width: 100%;">
+    <div class="col-md p-5" style="background-color: aliceblue;">
+        <h3 class="text-center"><b>Agents</b></h3>
+        <p>Agents are the playable characters in VALORANT, representing an agent of the Valorant Protocol. Each agent
+            serves as a different class with four abilities and has a unique Contract.</p>
+        <div style="display: flex; justify-content: center;">
+            <a class="btn btn-primary" href="/agents" role="button">Agents</a>
+        </div>
+    </div>
+    <div class="col-md p-5" style="background-color: antiquewhite;">
+        <h3 class="text-center"><b>Weapons</b></h3>
+        <p>Weapons can be purchased by Agents using creds during the pre-round sequence. Each Agent is equipped with a
+            Knife and the Classic sidearm for free by default. Agents will keep the weapons they purchase through each
+            round until they die. Weapons can also be picked up off the ground from deceased players, both friendly and
+            hostile, which will carry on with the player into the next round.</p>
+        <div style="display: flex; justify-content: center;">
+            <a class="btn btn-primary" href="/weapons" role="button">Weapons</a>
+        </div>
+    </div>
+</div>
+<div class="row m-0" style="width: 100%;">
+    <div class="col-md p-5" style="background-color: aqua;">
+        <h3 class="text-center"><b>Skins</b></h3>
+        <p>Weapon Skins are weapons in Valorant that have their appearance modified. They can be bought from the store
+            with Valorant Points or Radianite Points. They can also be obtained by completing Contracts.</p>
+        <div style="display: flex; justify-content: center;">
+            <a class="btn btn-primary" href="/weapons/skins" role="button">Skins</a>
+        </div>
+    </div>
+    <div class="col-md p-5" style="background-color: aquamarine;">
+        <h3 class="text-center"><b>Maps</b></h3>
+        <p>Each match of VALORANT takes place on a map. Maps feature a spawn area for each team, barriers that limit
+            accessible areas during the Buy Phase, and objective sites where the spike is to be planted.</p>
+        <div style="display: flex; justify-content: center;">
+            <a class="btn btn-secondary disabled" href="#" role="button">Coming Soon</a>
+        </div>
+    </div>
+</div>
+<footer class="position-relative bg-secondary text-white-50 m-0" style="height: 5.9vh;">
+    <p class="position-absolute top-50 start-50 translate-middle">VALOBERG Developed By Saurakrit "izeberg" Klinmali</p>
+</footer>
+{% endblock %}
