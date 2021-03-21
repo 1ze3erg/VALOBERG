@@ -1,2 +1,2 @@
 # VALOBERG
-[Django Project] VALOBERG by Saurakrit Klinmali
+Django Project VALOBERG by Saurakrit Klinmali
